@@ -20,17 +20,31 @@ export default function Home() {
     setQuestion(e.target.value);
   };
 
-  const handleRTFRead = (e) => {
+  const handleRTFRead = async (e) => {
     e.preventDefault();
+    //use FileReader API to get raw rtf data
     console.log("reading contents...");
     const reader = new FileReader();
-    reader.onloadend = (e) => {
+    reader.onloadend = async (e) => {
       if (e.target.result) {
         setRtfContent(e.target.result);
         console.log("contents read!");
+        //send to API to transform rtf data
+        await sendRtfToServer(e.target.result);
       }
     };
     reader.readAsText(file);
+  };
+
+  const sendRtfToServer = async (rawRTF) => {
+    console.log(rtfContent);
+    const rtfText = await fetch("/api/transformRTF", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rtfcontents: rawRTF }),
+    });
+    const parsedRtf = await rtfText.json();
+    console.log(parsedRtf);
   };
 
   const handleQuestion = (e) => {

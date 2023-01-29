@@ -1,6 +1,16 @@
 # CaseChat
 A question and answer chat-box for legal judgements
 
+## CURRENT PROGRESS
+- the rtfText state updates when the submit button is clicked but isnt read in the functions that use it for some reason
+- the rtf text is too large (>1mb) to be sent to the server. Tried to use firebase storage to fix but not sure if the code in the serverside is the right place to put it
+
+TODO:
+- fix issues
+- get Open AI config working
+- get rtf parser config working
+- use embedding process to make chatbot
+
 ## The idea
 
 GTP knows a lot of knowledge generally. For example, asking it to explain the case of Chan Yee Kin v Minister for Immigration & Ethnic Affairs (1989) 169 CLR 379 works great. 
