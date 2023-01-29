@@ -3,15 +3,15 @@ A question and answer chat-box for legal judgements
 
 ## The idea
 
-ChatGTP knows a lot of knowledge generally. For example, asking it to explain the case of Chan Yee Kin v Minister for Immigration & Ethnic Affairs (1989) 169 CLR 379 works great. 
+GTP knows a lot of knowledge generally. For example, asking it to explain the case of Chan Yee Kin v Minister for Immigration & Ethnic Affairs (1989) 169 CLR 379 works great. 
 
 However, there are two exceptions to its pre-training knowledge when asked about legal judgements:
-1. Specific, less reported judgements fly under ChatGTP's radar; and
+1. Specific, less reported judgements fly under GTP's radar; and
 2. knowledge is cut-off at 2021.
 
-What CaseChat seeks to do is enable ChatGTP to answer questions using a library of text as a reference - i.e using the text of a case as context for ChatGTP to respond to. Essentially, I aim to further train the GTP model with legal judgements.
+What CaseChat seeks to do is enable GTP to answer questions using a library of text as a reference - i.e using the text of a case as context for GTP to respond to. Essentially, I aim to further train the GTP model with legal judgements.
 
-## How it's done
+## Possible ways to do it
 
 ### Using embeddings
 
@@ -36,8 +36,9 @@ https://beta.openai.com/docs/guides/fine-tuning;
 - See best practices: https://docs.google.com/document/d/1rqj7dkuvl7Byd5KQPUJRxc19BJt8wo0yHNwK84KfU3Q/edit#heading=h.u8zo10gc2kiq
 2. Create fine tuned model:    `openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -m <BASE_MODEL>`
 
-## Pre-processing
+## Considerations
 
 - Consider webscraping from Austlii OR just have a file upload option
 - Consider how to group sections of context with semantically related headers (each numbered para as a section? each subheading?)
 
+For now, this will this be an app where you upload a judgement for the chatbox to interpret.
